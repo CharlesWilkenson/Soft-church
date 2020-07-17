@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content=""/>
+  <meta name="author" content="Dashboard"/>
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina"/>
+  <title>Login</title>
+
+  
+  	<link rel="stylesheet" type="text/css" href="../static/util.css"
+  	th:href="@{/util.css}"/>
+	<link rel="stylesheet" type="text/css" href="../static/main.css"
+	th:href="@{/main.css}"/>
+  
+    <link href="../static/Design/img/favicon.png" rel="icon"
+    th:href="@{/Design/img/favicon.png}"/>
+  <link href="../static/Design/img/apple-touch-icon.png" rel="apple-touch-icon"
+  th:href="@{/Design/img/apple-touch-icon.png}"/>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../static/Design/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+  th:href="@{/Design/lib/bootstrap/css/bootstrap.min.css}"/>
+  <!--external css-->
+  <link href="../static/Design/lib/font-awesome/css/font-awesome.css" rel="stylesheet" 
+  th:href="@{/Design/lib/font-awesome/css/font-awesome.css}"/>
+  <!-- Custom styles for this template -->
+  <link href="../static/Design/css/style.css" rel="stylesheet"
+  th:href="@{/Design/css/style.css}"/>
+  <link href="../static/Design/css/style-responsive.css" rel="stylesheet"
+  th:href="@{/Design/css/style-responsive.css}"/>
+
+  
+  <link href="../static/bootstrap.min.css" rel="stylesheet"
+  th:href="@{/bootstrap.min.css}"/>
+	
+	<link href="../static/css/styles.css" rel="stylesheet"
+	th:href="@{/css/styles.css}"/>
+
+ <link rel="stylesheet" type="text/css" href="../static/validation/styletext.css" 
+ th:href="@{/validation/styletext.css}"/>
+
+
+	  <link href="../static/Design/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	  th:href="@{/Design/lib/bootstrap/css/bootstrap.min.css}"/>
+  <!--external css-->
+  <link href="../static/Design/lib/font-awesome/css/font-awesome.css" rel="stylesheet" 
+  th:href="@{/Design/lib/font-awesome/css/font-awesome.css}"/>
+
+    	
+    	 <style type="text/css">
+
+
+.my-error-class {
+    color:#FF0000;  /* red */
+     font-size: 14px;
+   
+}
+.my-valid-class {
+    color:#00CC00; /* green */
+}
+		</style>
+		
+	<!-- 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    --> <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/Footer-with-social-icons.css"
+    th:href="@{/Footer-with-social-icons.css}"/>
+
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+ 
+</head>
+
+<body>
+ <header class="header black-bg">
+      <div class="sidebar-toggle-box">
+   
+      </div>
+      <!--logo start-->
+      
+      <a href="#" class="logo"> <i class="fa fa-church" style='font-size:40px;color:white'></i><b>SOFT<span>CHURCH</span></b></a>
+  <!-- <a href="#" class="logo"><img alt="" src="../static/Design/img/softchurch.jpeg" width="50" height="50" th:src="@{/Design/img/softchurch.jpeg}"><b>SOFT<span>CHURCH</span></b></a>
+   -->
+    
+      <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+          <li>
+         
+     
+          </li>
+        </ul>
+      </div>
+    </header>
+  <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+   <form id="code_membre" th:object=${user} th:action="@{passwordReset}" method="post">
+        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+          <div class="modal-dialog">
+          
+            <div class="modal-content">
+            
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Mot de passe oublié ?</h4>
+              </div>
+              <div class="modal-body">
+				
+				 
+                <p>Entrer votre email pour avoir votre un nouveau mot de passe.</p>
+                <input type="text" name="email" placeholder="Email" autocomplete="off"  class="form-control placeholder-no-fix">
+              </div>
+              <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Annuler</button>
+                <button class="btn btn-theme" type="submit">OK</button>
+              </div>
+            
+            </div>
+          </div>
+        </div></form>
+  
+  <div id="login-page">
+    <div class="container">
+      <br>
+               
+    
+             
+
+        
+        <br><br>
+        
+        <br>
+        <div th:if="${succes}" class="alert alert-success" style="width: 545px;margin:auto;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Info!</strong> Votre mot de passe a ete regenere avec  succes. Verifiez votre email
+              </div>
+              <div class="alert alert-success" th:if="${faillure}" style="width: 545px;margin:auto;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Info!</strong> Echec .
+               </div>
+        <br>
+           
+        <!-- Modal -->
+         
+        
+        <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+				<form class="login100-form validate-form flex-sb flex-w" method="post" id="login" th:action="@{login}">
+					<span class="login100-form-title p-b-32">
+						Connectez-vous a votre compte
+					</span>
+
+					<span class="txt1 p-b-11">
+						Email
+					</span>
+					<div class="wrap-input100 validate-input m-b-36" data-validate = "Entrer votre email">
+						<input class="input100" type="text" name="username" >
+						<span class="focus-input100"></span>
+					</div>
+					
+					<span class="txt1 p-b-11">
+						Mot de passe
+					</span>
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Entrer votre mot de passe">
+						<span class="btn-show-pass">
+							<i class="fa fa-eye"></i>
+						</span>
+						<input class="input100" type="password"   name="password" >
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="flex-sb-m w-full p-b-48">
+					<!-- 	<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div> -->
+
+						<div>
+							<a data-toggle="modal" th:href="@{login.html#myModal}" class="txt3">
+								Mot de passe oublié?
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							Connexion
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+        	
+	
+
+  </div>
+  <br/><br/>
+  </div>
+      <footer id="myFooter">
+       <!--  <div class="container">
+            <div class="row">
+           
+                <div class="col-sm-3 myCols">
+                    <h5 style="color:#4ECDC4">A propos</h5>
+                    <ul>
+                        <li><a href="#">Company Information</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5 style="color:#4ECDC4">Contactes</h5>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-phone"></i>+50988515346</a></li>
+                        <li><a href="#"><i class="fa fa-map-marker">KTX, MY Dinh</i></a></li>
+                        <li><a href="#"><i class="fa fa-envelope">charleswilkenson13@gmail.com</i></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5 style="color:#4ECDC4">Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+      
+        <div class="footer-copyright">
+            <p>© 2019 Copyright SAPHIR</p>
+        </div>
+    </footer>
+  <!-- <i class="fa fa-lock"></i> -->
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="../static/Design/lib/jquery/jquery.min.js"
+  th:src="@{/Design/lib/jquery/jquery.min.js}"></script>
+  
+  <script src="../static/Design/lib/bootstrap/js/bootstrap.min.js"
+  th:src="@{/Design/lib/bootstrap/js/bootstrap.min.js}"></script>
+  <!--BACKSTRETCH-->
+  <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+  <script type="text/javascript" src="../static/Design/lib/jquery.backstretch.min.js"
+  th:src="@{/Design/lib/jquery.backstretch.min.js}"/></script>
+  
+    <script src="..static/plugins/bootstrap/js/bootstrap.js"
+    th:src="@{/plugins/bootstrap/js/bootstrap.js}"></script>
+  
+
+	<script type="text/javascript" src="../static/validation/jquery.validate.js"
+	th:src="@{/validation/jquery.validate.js}"></script>
+
+<script type="text/javascript" src="../static/validation/valid.js"
+th:src="@{/validation/valid.js}"></script>
+
+
+ <script type="text/javascript">
+ $.backstretch("[[@{/Design/img/Untitled-6.jpg}]]", {
+     speed: 500
+   });
+  </script> 
+  
+    <script type="text/javascript" src="../static/Design/lib/jquery.backstretch.min.js"
+  th:src="@{/Design/lib/jquery.backstretch.min.js}"></script>
+
+  
+  <script src="../static/main.js" th:src="@{/main.js}"></script>
+</body>
+
+</html>

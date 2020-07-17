@@ -1,0 +1,97 @@
+<aside>
+       
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+         <h5 class="centered" ><label th:text="${session.nom  }"></label>
+         <label th:text="${session.prenom}"></h5> 
+  
+          <li class="mt">
+                 <a th:href="@{/soft_church/home}">
+              <i class="fa fa-home"></i>
+              <span>Acceuil</span>
+              </a>
+          </li>
+          
+          <li th:if="${#request.isUserInRole('ADMIN') || #request.isUserInRole('SEC')}" class="sub-menu" >
+            <a href="javascript:;">
+              <i class="fa fa-user"></i>
+              <span>Membre</span>
+              </a>
+            <ul class="sub">
+              <li><a href="/soft_church/formsaveMembre"><i class="fa fa-save"></i><span>Enregistrer</span></a></li>
+              <li><a href="/soft_church/formsearchMembre"><i class="fa fa-search"></i><span>Rechercher</span></a></li>
+              <li><a href="/soft_church/formlisterMembre"><i class="fa fa-list"></i><span>Lister</span></a></li>            
+            </ul>
+          </li>
+          
+   
+              <li class="sub-menu" th:if="${#request.isUserInRole('ADMIN')}">
+            <a href="javascript:;">
+              <i class="fa fa-money" aria-hidden="true"></i>
+              <span>Dime</span>
+              </a>
+            <ul class="sub">
+              <li><a href="/soft_church/formSaveDime"><i class="fa fa-save"></i><span>Enregistrer</span></a></li>
+              <li><a href="/soft_church/listerDimesCashes"><i class="fa fa-list"></i><span>Lister (Cash)</span></a></li>
+            <li><a href="/soft_church/listerDimesCheques"><i class="fa fa-list"></i><span>Lister (Cheque)</span></a></li>
+            </ul>
+          </li>
+          
+          
+                 <li class="sub-menu" th:if="${#request.isUserInRole('ADMIN')}">
+            <a href="javascript:;">
+              <i class="fa fa-money" aria-hidden="true"></i>
+              <span>Don</span>
+              </a>
+            <ul class="sub">
+              <li><a href="/soft_church/form_don"><i class="fa fa-save"></i><span>Enregistrer</span></a></li>
+              <li><a href="/soft_church/lister_don_especes"><i class="fa fa-list"></i><span>Lister (Especes)</span></a></li>
+            <li><a href="/soft_church/lister_don_natures"><i class="fa fa-list"></i><span>Lister (Natures)</span></a></li>
+            </ul>
+          </li>
+          
+                 <li class="sub-menu" >
+            <a href="javascript:;">
+              <i class='fas fa-pray'  style='font-size:20px;'></i>
+              <span>Culte</span>
+              </a>
+            <ul class="sub">
+            <li th:if="${#request.isUserInRole('ADMIN') || #request.isUserInRole('SEC')}"><a href="/soft_church/formSaveCulte"><i class="fa fa-save"></i><span>Enregistrer</span></a></li>
+             <li><a href="/soft_church/lister_cultes"><i class="fa fa-list"></i><span>Lister</span></a></li>
+            
+            </ul>
+          </li>
+          
+          
+             <li  th:if="${#request.isUserInRole('ADMIN')}" class="sub-menu">
+            <a th:href="@{/soft_church/dashboard}">
+              <i class="glyphicon glyphicon-log-out"></i>
+              <span>Administration</span>
+              </a>
+          </li>
+          
+               <li class="sub-menu" th:if="${#request.isUserInRole('ADMIN')}">
+            <a href="javascript:;">
+            <i class="fa fa-group"></i> 
+              <span>Gestion Utilisateur</span>
+              </a>
+            <ul class="sub">
+              <li><a href="/soft_church/formAttribuerRole"><i  class="fa fa-plus"></i><span>Attribuer role</span></a></li>
+              <li><a href="/soft_church/listerUsers"><i class="fa fa-list"></i><span>Lister</span></a></li>
+           
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a th:href="@{logout(id=${ll})}">
+              <i class="glyphicon glyphicon-log-out"></i>
+              <span>Deconnexion</span>
+              </a>
+          </li>
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+ 
+</aside>

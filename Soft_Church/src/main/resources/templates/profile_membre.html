@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content=""/>
+  <meta name="author" content="Dashboard"/>
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina"/>
+  <title>Save membre</title>
+<object th:include="fragments/head :: head" th:remove="tag"></object>
+
+</head>
+
+<body>
+  <section id="container">
+    <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+    <!--header start-->
+         <div th:include="fragments/topmenuheader :: header"></div>
+    <!--header end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+    <div th:include="fragments/homeaside:: aside"></div>
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<div >
+<section id="main-content">
+ 
+      <section class="wrapper site-min-height">
+      <form  th:object="${membre}">
+   <div  class="row content-panel">
+              <div class="col-md-4 profile-text mt mb centered">
+                <div class="right-divider hidden-sm hidden-xs">
+                  <h4 >Nom</h4>
+                  <h5 th:text="${nom}"></h5>
+                  <h4>Prenom</h4>
+                  <h5 th:text="${prenom}"> </h5>
+                  <h4>Date de naissance</h4>
+                  <h5 th:text="${dateNaiss}"></h5>
+				    <h4>Lieu de naissance</h4>
+                  <h5 th:text="${lieuNaiss}"></h5>
+                  <h4>Telephone</h4>
+                  <h5 th:text="${tel}"></h5>
+                  <h4>Email</h4>
+                  <h5 th:text="${email}"></h5>
+                </div>
+              </div>
+			  
+       <div class="col-md-4 profile-text mt mb centered">
+                <div class="right-divider hidden-sm hidden-xs">
+                  <h4>Sexe</h4>
+                  <h5 th:text="${sexe}"></h5>
+                  <h4>Nationanlite</h4>
+                  <h5 th:text="${nationalite}"></h5>
+                  <h4>Adresse</h4>
+                  <h5 th:text="${adresse}"></h5>
+				    <h4>Identification</h4>
+                  <h5 th:text="${id}"></h5>
+                  <h4>Statut matrimoniale</h4>
+                  <h5 th:text="${statut}"></h5>
+                  <h4>Date d'ajout</h4>
+                  <h5 th:text="${dateAjout}"></h5>
+                </div>
+              </div>
+              <!-- /col-md-4 -->
+               <div class="col-md-2 centered">
+                <div class="profile-pic">
+                  <p><img src="../static/Design/img/ui-sam.jpg" class="img-circle"
+				  th:src="@{getImage(code=${''})}"></p>
+              
+                </div>
+              </div> 
+              <!-- /col-md-4 -->
+            </div>
+    </form>
+     </section>
+  	  
+    </section>
+</div>
+
+    <!--main content end-->
+    <!--footer start-->
+ <div th:include="fragments/homefooter :: footer"></div></section>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<head>
+<!-- 323-6422-1687-6215 -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Carey Development, LLC" name="author" />
+    <title> Soft_CHURCH</title>
+   
+  <link href="../static/Design/img/apple-touch-icon.png" rel="apple-touch-icon"
+  th:href="@{/Design/img/apple-touch-icon.png}"/>
+
+ <link rel="stylesheet" type="text/css" href="../static/Design/lib/bootstrap-fileupload/bootstrap-fileupload.css" 
+ th:href="@{/Design/lib/bootstrap-fileupload/bootstrap-fileupload.css}"/>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../static/Design/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+  th:href="@{/Design/lib/bootstrap/css/bootstrap.min.css}"/>
+  <!--external css-->
+  <link href="../static/Design/lib/font-awesome/css/font-awesome.css" rel="stylesheet" 
+   th:href="@{/Design/lib/font-awesome/css/font-awesome.css}"/>
+   <!--  <link rel="stylesheet" type="text/css" href="../static/Design/lib/bootstrap-fileupload/bootstrap-fileupload.css" 
+  th:href="@{/Design/lib/font-awesome/css/font-awesome.css}"/> -->
+  
+
+  <!-- notification -->
+  <link href="../static/notification/bootstrap-responsive.min.css" rel="stylesheet"
+  th:href="@{/notification/bootstrap-responsive.min.css}"/>
+  
+  
+  
+      <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="../static/plugins/bootstrap/css/bootstrap.css" rel="stylesheet"
+    th:href="@{/plugins/bootstrap/css/bootstrap.css}"/>
+
+    <!-- Waves Effect Css -->
+    <link href="../static/plugins/node-waves/waves.css" rel="stylesheet" 
+    th:href="@{/plugins/node-waves/waves.css}"/>
+
+    <!-- Animation Css -->
+    <link href="../static/plugins/animate-css/animate.css" rel="stylesheet" 
+    th:href="@{/plugins/animate-css/animate.css}"/>
+
+    <!-- JQuery DataTable Css -->
+    <link href="../static/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet"
+    th:href="@{/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css}"/>
+
+    <!-- Custom Css -->
+   <link href="../static/plugins/styleperso.css" rel="stylesheet"
+   th:href="@{/plugins/styleperso.css}"/>
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="../static/plugins/themes/all-themes.css" rel="stylesheet" 
+    th:href="@{/plugins/themes/all-themes.css}"/>
+        <link href="../static/Design/img/favicon.png" rel="icon"
+    th:href="@{/Design/img/favicon.png}">
+  <link href="../static/Design/img/apple-touch-icon.png" rel="apple-touch-icon"
+  th:href="@{/Design/img/apple-touch-icon.png}"/>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../static/Design/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+  th:href="@{/Design/lib/bootstrap/css/bootstrap.min.css}"/>
+  <!--external css-->
+  <link href="../static/Design/lib/font-awesome/css/font-awesome.css" rel="stylesheet" 
+   th:href="@{/Design/lib/font-awesome/css/font-awesome.css}"/>
+ <!--    <link rel="stylesheet" type="text/css" href="../static/Design/lib/bootstrap-fileupload/bootstrap-fileupload.css" 
+  th:href="@{/Design/lib/font-awesome/css/font-awesome.css}"/> -->
+  
+  <link rel="stylesheet" type="text/css" href="../static/Design/lib/bootstrap-datepicker/css/datepicker.css" 
+  th:href="@{/Design/lib/bootstrap-datepicker/css/datepicker.css}"/>
+  
+  <link rel="stylesheet" type="text/css" href="../static/Design/lib/bootstrap-daterangepicker/daterangepicker.css" 
+  th:href="@{/Design/lib/bootstrap-daterangepicker/daterangepicker.css}"/>
+
+  <link rel="stylesheet" type="text/css" href="../static/Design/lib/bootstrap-datetimepicker/datertimepicker.css" 
+  th:href="@{/Design/lib/bootstrap-datetimepicker/datertimepicker.css}"/>
+  <!-- Custom styles for this template -->
+  <link href="../static/Design/css/style.css" rel="stylesheet"
+  th:href="@{/Design/css/style.css}"/>
+  
+    <link rel="stylesheet" type="text/css" href="../static/Design/lib/bootstrap-timepicker/compiled/timepicker.css" 
+  th:href="@{/Design/lib/bootstrap-timepicker/compiled/timepicker.css}"/>
+  
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+  <style>
+* {
+  box-sizing: border-box;
+}
+
+/* body {
+  font: 16px Arial;  
+}
+ */
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+/* input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+ */
+/* input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+} */
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+
+.my-error-class {
+    color:#FF0000;  /* red */
+     font-size: 14px;
+   
+}
+.my-valid-class {
+    color:#00CC00; /* green */
+}
+</style>
+</head>

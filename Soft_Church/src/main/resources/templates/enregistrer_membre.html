@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content=""/>
+  <meta name="author" content="Dashboard"/>
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina"/>
+  <title>Save membre</title>
+     <object th:include="fragments/head :: head" th:remove="tag"></object>
+
+</head>
+
+<body>
+  <section id="container">
+    <div th:include="fragments/topmenuheader :: header"></div>
+ <div th:include="fragments/homeaside:: aside"></div>
+     
+    <!--sidebar end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<div >
+<section id="main-content">
+ 
+      <section class="wrapper site-min-height">
+      <br>
+               <div class="alert alert-success" th:if="${faillure}">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Info!</strong> Enregistrement echoue .
+               </div>
+    
+                <div th:if="${succes}" class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Info!</strong> Nouveau membre enregistre avec succes.
+				<label ></label>code:<label th:text="${code}"></label>
+				
+              </div>
+ 
+      <form th:object="${membre}" th:action="@{saveMembre}" class="form-horizontal tasi-form" method="post" id="membre" enctype="multipart/form-data">
+        <!-- page start-->
+        <div class="chat-room mt">
+          <aside class="mid-side" >
+            <div class="chat-room-head">
+              <h3>Enregistrer Membre</h3>
+              
+            </div>
+ 
+		 
+		 
+			  
+			  	<div class="form-row">
+                       <br/>
+	             <div class="col-md-6 mb-3">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Nom</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control round-form" th:field="*{nom}" placeholder="Nom">
+                  </div>
+                </div>
+			
+                <div class="form-group ">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputWarning">Prenom</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control round-form" th:field="*{prenom}" placeholder="Prenom">
+                  </div>
+                </div>
+                
+                
+                 <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Phone</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control round-form" th:field="*{tel}" placeholder="Telephone">
+                  </div>
+               </div>
+                   <div class="text-danger" th:if="${errorTel}" th:text="${errorTel}"></div>
+                
+                   <div class="form-group ">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputWarning">Date N</label>
+                   <div class="col-lg-9">
+                     <div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date="01-01-2014" class="input-append date dpYears">
+                      <input type="text" name="dateNaissance" readonly="readonly"  size="16" class="form-control ">
+                     
+                      <span class="input-group-btn add-on">
+                        <button class="btn btn-theme" type="button"><i class="fa fa-calendar"></i></button>
+                        </span>
+                    </div>
+                </div>
+                </div>
+                
+				
+				<div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Nationalite</label>
+                  <div class="col-lg-10">
+                    <input type="text" id="myInput" name="myCountry" class="form-control round-form" th:field="*{nationalite}" placeholder="Nationalite">
+                  </div>
+                </div>
+				
+			<div class="form-group">
+			
+			 	      <label class="col-sm-2 control-label col-lg-2" for="inputError">Sexe</label>
+<label class="radio-inline"><input type="radio" name="optradio" th:field="*{sexe}" th:value="Masculin">Masculin</label>
+<label class="radio-inline"><input type="radio" name="optradio" th:field="*{sexe}" th:value="Feminin">Feminin</label>   
+
+                </div>
+				</div>
+				</div>
+				
+				<div class="form-row">
+
+	             <div class="col-md-6 mb-3">
+               
+			
+            
+              
+			  <div class="form-group ">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputWarning">Lieu N</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control round-form" th:field="*{lieuNaissance}" placeholder="Lieu de naissance">
+                  </div>
+                </div>
+                
+                
+                  <div class="form-group ">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputWarning">CIN/NIF</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control round-form" th:field="*{identification}" placeholder="Numero d'identification">
+                  </div>
+                
+                </div>
+                   <div class="text-danger" th:if="${errorId}" th:text="${errorId}"></div>
+				
+				 <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Email</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control round-form" th:field="*{email}" placeholder="Email">
+                  </div>
+                 
+                </div>
+                 <div class="text-danger" th:if="${errorEmail}" th:text="${errorEmail}"></div>
+                  
+                 
+				
+				 <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Adresse</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control round-form" th:field="*{adresse}" placeholder="Adresse">
+                  </div>
+                </div>
+				
+				
+				 <div class="form-group">
+				 <label class="col-sm-2 control-label col-lg-2" for="inputError">Statut Matrimonial</label>
+<label class="radio-inline"><input type="radio" name="optradio" th:field="*{statutMatrimonial}" th:value="Marie">Marie(e)</label>
+<label class="radio-inline"><input type="radio" name="optradio" th:field="*{statutMatrimonial}" th:value="Divorce">Divorce(e)</label>   
+  <label class="radio-inline"><input type="radio" name="optradio" th:field="*{statutMatrimonial}" th:value="Celibataire">Celibataire</label>
+		
+                </div>
+				      <div class="modal-footer ">
+        <button  class="btn btn-theme" ><span class="fa fa-save"></span> Enregistrer</button>
+     </div>
+				</div>
+								
+				</div>
+        
+          
+            
+            
+          </aside>
+		  
+		  
+		  
+          <aside class="right-side">
+            <div class="user-head">
+          
+              <h3>Photo</h3>
+       
+            </div><br/>
+            
+                    <div class="col-md-12">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                      <div class="fileupload-new thumbnail" style="width: 150px; height: 150px;">
+                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" width="180px" height="180px" alt=""class="form-control " />
+                      </div>
+                      <div class="fileupload-preview fileupload-exists thumbnail " style="max-width: 150px; max-height: 150px; line-height: 20px;"></div>
+                      <div>
+                        <span class="btn btn-theme02 btn-file">
+                          <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir une photo</span>
+                        <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+                        <input type="file" class="default" name="picture"/>
+                        </span>
+                        <a href="#" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash-o"></i> Remove</a>
+                      </div>
+                    </div>
+                    
+                  </div>
+				  
+				  
+          </aside>
+        </div>
+        <!-- page end-->
+    </form> 
+    
+     </section>
+  	  
+    </section>
+</div>
+
+  
+    <!--footer end-->
+    <div th:include="fragments/homefooter :: footer"></div>
+  </section>
+
+
+
+</body>
+
+</html>

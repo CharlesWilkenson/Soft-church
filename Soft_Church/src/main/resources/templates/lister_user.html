@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Lister membre</title>
+    <object th:include="fragments/head :: head" th:remove="tag"></object>
+
+</head>
+
+<body>
+  <section id="container">
+
+           <div th:include="fragments/topmenuheader :: header"></div>
+
+    <div th:include="fragments/homeaside:: aside"></div>
+	
+	
+
+
+   <!--main content start-->
+    <section id="main-content">
+	
+
+      <section class="wrapper site-min-height">
+		
+        <div class="row mb">
+	
+                <div class="container-fluid">
+           
+            <!-- Exportable Table -->
+            <div class="row clearfix">
+             <br> <br>  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            
+                        <div class="body">
+                            <div class="table-responsive">
+                                       <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                     <thead>
+                      <tr>
+                    <th>Email</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Etat</th>
+                    <th>Action</th>
+                    
+                    </tr>
+                     </thead>                    
+
+                  
+                 <tbody>
+                  <tr th:each="val:${users}" class="gradeX" >
+                   <td th:text="${val.email}"></td>
+                    <td th:text="${val.membre.nom}"></td>
+                    <td th:text="${val.membre.prenom}"></td>
+                    <td th:text="${val.etat}"></td>
+                     <td th:if="${val.etat==false}"><p data-placement="top" data-toggle="tooltip"  title="Reactiver"><a th:href="@{reactiverUser(email=${val.email})}" class="btn btn-primary btn-xs" ><span class="fa fa-user"></span>Reactiver</a></p></td>
+                     <td th:if="${val.etat==true}"><p data-placement="top" data-toggle="tooltip"  title="Desactiver"><a th:href="@{desactiverUser(email=${val.email})}" class="btn btn-primary btn-xs" ><span class="fa fa-times"></span>Desactiver</a></p></td>
+                     <td th:if="${val.etat==true}"><p data-placement="top" data-toggle="tooltip"  title="Role"><a th:href="@{listerRoles_users(email=${val.email})}" class="btn btn-primary btn-xs" ><span ></span>Role</a></p></td>
+    
+                  </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            <!-- #END# Exportable Table -->
+        </div>
+          <!--page end-->
+        </div>
+        <!-- /row -->
+      </section>
+      <!-- /wrapper -->
+     	<div id="result"></div>
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+    <!--footer start-->
+	
+ <div th:include="fragments/homefooter :: footer"></div></section>
+ 
+</body>
+
+</html>

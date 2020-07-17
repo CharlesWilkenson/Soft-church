@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content=""/>
+  <meta name="author" content="Dashboard"/>
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina"/>
+  <title>Save membre</title>
+  <object th:include="fragments/head :: head" th:remove="tag"></object>
+
+</head>
+<style th:inline="text">
+.slider {
+  max-width: 100%;
+  height: 500px;
+  margin: 20px auto;
+  position: relative;
+}
+.slide1,.slide2,.slide3,.slide4,.slide5,.slide6,.slide7,.slide8,.slide9,.slide10,.slide11,.slide12,.slide13 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slide1 {
+    background: url([[@{/eglise/images1.jpeg}]])no-repeat center;
+    background-size: cover;
+    animation:fade1 10s infinite;
+    -webkit-animation:fade1 10s infinite;
+}
+
+.slide2 {
+    background: url([[@{/eglise/images2.jpeg}]])no-repeat center;
+      background-size: cover;
+    animation:fade3 11s infinite;
+-webkit-animation:fade2 11s infinite;
+}
+
+
+.slide3 {
+    background: url([[@{/eglise/john-price-27868.jpg}]])no-repeat center;
+      background-size: cover;
+    animation:fade3 8s infinite;
+-webkit-animation:fade3 8s infinite;
+}
+
+.slide4 {
+  background: url([[@{/eglise/images3.jpeg}]])no-repeat center;
+      background-size: cover;
+    animation:fade2 8s infinite;
+-webkit-animation:fade4 8s infinite;
+}
+
+.slide5 {
+  background: url([[@{/eglise/eglise-de-mers-les-bains-baie-de-somme-picardie.jpg}]])no-repeat center;
+      background-size: cover;
+    animation:fade5 13s infinite;
+-webkit-animation:fade5 13s infinite;
+}
+
+.slide6 {
+  background: url([[@{/eglise/4veh-ksm-091-02.jpg}]])no-repeat center;
+      background-size: cover;
+    animation:fade6 9s infinite;
+-webkit-animation:fade6 9s infinite;
+}
+
+
+.slide7 {
+  background: url([[@{/eglise/Gagny-eglise-saint-germain.jpg}]])no-repeat center;
+      background-size: cover;
+    animation:fade7 13s infinite;
+-webkit-animation:fade7 13s infinite;
+}
+
+
+.slide8 {
+  background: url([[@{/eglise/images7.jpeg}]])no-repeat center;
+      background-size: cover;
+    animation:fade2 18s infinite;
+-webkit-animation:fade8 18s infinite;
+}
+
+
+
+.slide9 {
+  background: url([[@{/eglise/john-price-27868.jpg}]])no-repeat center;
+      background-size: cover;
+    animation:fade9 15s infinite;
+-webkit-animation:fade9 15s infinite;
+}
+
+.slide10 {
+  background: url([[@{/eglise/maxresdefault.jpg}]])no-repeat center;
+      background-size: cover;
+    animation:fade10 18s infinite;
+-webkit-animation:fade10 18s infinite;
+}
+
+
+.slide11 {
+  background: url([[@{/eglise/download2.jpeg}]])no-repeat center;
+      background-size: cover;
+    animation:fade11 19s infinite;
+-webkit-animation:fade11 19s infinite;
+}
+
+
+.slide12 {
+  background: url([[@{/eglise/images8.jpeg}]])no-repeat center;
+      background-size: cover;
+    animation:fade12 20s infinite;
+-webkit-animation:fade12 20s infinite;
+}
+
+.slide13 {
+  background: url([[@{/eglise/eglise-de-mers-les-bains-baie-de-somme-picardie.jpg}]])no-repeat center;
+      background-size: cover;
+    animation:fade13 21s infinite;
+-webkit-animation:fade13 21s infinite;
+}
+
+
+@keyframes fade1
+{
+  0%   {opacity:1}
+  37.333% { opacity: 0}
+  63.666% { opacity: 0}
+  100% { opacity: 1}
+}
+@keyframes fade2
+{
+  0%   {opacity:0}
+  39.333% { opacity: 1}
+  69.666% { opacity: 0 }
+  100% { opacity: 0}
+}
+@keyframes fade3
+{
+  0%   {opacity:0}
+  43.333% { opacity: 0}
+  76.666% { opacity: 1}
+  100% { opacity: 0}
+}
+	@keyframes fade4
+{
+  0%   {opacity:0}
+  34.333% { opacity: 1}
+  70.666% { opacity: 0 }
+  100% { opacity: 0}
+}
+@keyframes fade5
+{
+  0%   {opacity:0}
+  37.333% { opacity: 0}
+  80.666% { opacity: 1}
+  100% { opacity: 0}
+}
+	@keyframes fade6
+{
+  0%   {opacity:0}
+  30.333% { opacity: 1}
+  56.666% { opacity: 0 }
+  100% { opacity: 0}
+}
+@keyframes fade7
+{
+  0%   {opacity:0}
+  31.333% { opacity: 0}
+  60.666% { opacity: 1}
+  100% { opacity: 0}
+}
+	@keyframes fade8
+{
+  0%   {opacity:0}
+  42.333% { opacity: 1}
+  76.666% { opacity: 0 }
+  100% { opacity: 0}
+}
+@keyframes fade9
+{
+  0%   {opacity:0}
+  54.333% { opacity: 0}
+  72.666% { opacity: 1}
+  100% { opacity: 0}
+}
+	
+	@keyframes fade10
+{
+  0%   {opacity:0}
+  34.333% { opacity: 1}
+  69.666% { opacity: 0 }
+  100% { opacity: 0}
+}
+@keyframes fade11
+{
+  0%   {opacity:0}
+  33.333% { opacity: 0}
+  66.666% { opacity: 1}
+  100% { opacity: 0}
+}
+	@keyframes fade12
+{
+  0%   {opacity:0}
+  38.333% { opacity: 1}
+  60.666% { opacity: 0 }
+  100% { opacity: 0}
+}
+@keyframes fade13
+{
+  0%   {opacity:0}
+  30.333% { opacity: 0}
+  61.666% { opacity: 1}
+  100% { opacity: 0}
+}
+	
+</style>
+<body>
+  <section id="container">
+    <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+    <!--header start-->
+  <div th:include="fragments/topmenuheader :: header"></div>
+   <div th:include="fragments/homeaside:: aside"></div>
+   
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<div >
+<section id="main-content">
+ 
+      <section class="wrapper site-min-height">
+<h1>BIENVENUE A SOFT CHURCH</h1>
+ <div class='slider'>
+  <div class='slide1' ></div>
+  <div class='slide2'></div>
+  <div class='slide3'></div>
+  
+  <div class='slide4' ></div>
+  <div class='slide5'></div>
+  <div class='slide6'></div>
+  
+  <div class='slide7'></div>
+  <div class='slide8'></div>
+  
+  <div class='slide9' ></div>
+  <div class='slide10'></div>
+  <div class='slide11'></div>
+  
+  <div class='slide12' ></div>
+  <div class='slide13'></div>
+
+  
+  
+  
+</div>
+
+
+     </section>
+  	  
+    </section>
+</div>
+
+    <!--main content end-->
+    <!--footer start-->
+   <div th:include="fragments/homefooter :: footer"></div></section>
+</body>
+
+</html>

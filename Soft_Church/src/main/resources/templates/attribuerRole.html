@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content=""/>
+  <meta name="author" content="Dashboard"/>
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina"/>
+  <title>Attribuer role</title>
+
+ <object th:include="fragments/head :: head" th:remove="tag"></object>
+
+
+</head>
+
+<body>
+  <section id="container">
+     <div th:include="fragments/topmenuheader :: header"></div>
+ <div th:include="fragments/homeaside:: aside"></div>
+	<div >
+<section id="main-content" style="width:60%;margin:auto">
+ 
+      <section class="wrapper site-min-height">
+      <br>
+               <div class="alert alert-danger" th:if="${faillure}">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Info!</strong>Transaction Echoue .
+               </div>
+
+                <div th:if="${succes}" class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Info!</strong> Nouveau role attribue avec succes.
+              </div>
+ 
+     
+        <!-- page start-->
+        <div class="chat-room mt">
+          <aside class="mid-side" >
+            <div class="chat-room-head">
+              <h3>Changer Mot de passe</h3>
+              
+            </div>
+ 
+		  <form th:object="${user}" th:action="@{attribuerRole}"
+		   class="form-horizontal tasi-form"
+	       method="post" id="user"  style="padding-left:140px">
+		 
+			  
+			  	<div class="form-row">
+                       <br/>
+	             <div class="col-md-9 mb-3">
+           
+			
+                <div class="form-group ">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputWarning">Email</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control round-form" th:field="*{email}" placeholder="Email">
+                  </div>
+                </div>
+                               
+                
+                 <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2">Role</label>  
+                  <div class="col-lg-10">              
+                 <select name="role" class="form-control ">
+                 <option  value=""> -- </option>
+                 <option value="SEC">Secretaire</option>
+                 <option value="ADMIN">Administrateur</option>
+                
+                 
+                  </select>     </div>           
+                 </div>
+                
+	    <div class="modal-footer ">
+        <button  class="btn btn-theme" ><span class="fa fa-save"></span> Enregistrer</button>
+       </div>
+				
+				</div>
+				
+</div>
+      </form>
+                 </aside>
+                  </div>
+                  
+         </section>
+         </section>
+                </div>
+		
+	
+        <!-- page end-->
+
+        <div th:include="fragments/homefooter :: footer"></div>
+     </section>
+
+</body>
+
+</html>

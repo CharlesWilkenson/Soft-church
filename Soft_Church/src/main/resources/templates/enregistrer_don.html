@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content=""/>
+  <meta name="author" content="Dashboard"/>
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina"/>
+  <title>Save don</title>
+
+ <object th:include="fragments/head :: head" th:remove="tag"></object>
+
+
+</head>
+
+<body>
+  <section id="container">
+     <div th:include="fragments/topmenuheader :: header"></div>
+ <div th:include="fragments/homeaside:: aside"></div>
+    <!--sidebar end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<div >
+<section id="main-content" style="width:60%;margin:auto">
+ 
+      <section class="wrapper site-min-height">
+      <br>
+               <div class="alert alert-danger" th:if="${faillure}">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Info!</strong> Enregistrement echoue .
+               </div>
+
+                <div th:if="${success}" class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Info!</strong> Don enregistre avec succes.
+              </div>
+ 
+       
+        <!-- page start-->
+        <div class="chat-room mt">
+          <aside class="mid-side" >
+            <div class="chat-room-head">
+              <h3>Enregistrer don</h3>
+              
+            </div>
+      
+ 
+ 	       <div class="form-group">
+ 	       <label class="radio-inline">Type</label>
+<label class="radio-inline"><input type="radio" name="optradio" onchange="showCash('formCash')">Nature</label>
+<label class="radio-inline"><input type="radio" name="optradio" onchange="showCheque('formCheque')">Espece </label>   
+        </div>
+
+   <form style="display:none;padding-left:140px" th:object="${espece}" th:action="@{save_don_espece}" 
+		  class="form-horizontal tasi-form"
+	      method="post" id="formCheque">
+		 
+		 	<div class="form-row">
+                       <br/>
+	             <div class="col-md-9 mb-3">
+	             
+	                       <div class="form-group ">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputWarning">Donateur</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control round-form" th:field="*{donateur}" placeholder="le donateur">
+                  </div>
+                </div>
+                <!-- transferwise2019 -->
+                
+                 <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Montant</label>
+                  <div class="col-lg-10">
+                    <input type="text" th:field="*{montant}" class="form-control round-form"  placeholder="Montant">
+                  </div>
+                </div>
+                
+                
+                    <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Devise</label>
+                  <div class="col-lg-10">
+                    <input type="text" th:field="*{devise}" class="form-control round-form"  placeholder="Devise">
+                  </div>
+                </div>
+                
+                  <div class="modal-footer ">
+        <button  class="btn btn-theme" ><span class="fa fa-save"></span> Enregistrer</button>
+       </div>
+	             </div>
+	             
+	             
+	             </div>
+		 
+        <!-- transferwise2019 -->
+
+          </form>
+ 
+ 
+ 
+ 
+ 
+		  <form style="display:none;padding-left:140px" th:object="${nature}" th:action="@{save_don_nature}" 
+		  class="form-horizontal tasi-form"
+	      method="post" id="formCash"  >
+		 
+			  
+			  	<div class="form-row">
+                       <br/>
+	             <div class="col-md-9 mb-3">
+    
+        	             <div class="form-group ">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputWarning">Donateur</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control round-form" th:field="*{donateur}" placeholder="le donateur">
+                  </div>
+                </div>
+                <!-- transferwise2019 -->
+                
+                 <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Description</label>
+                  <div class="col-lg-10">
+                    <input type="text" th:field="*{description}" class="form-control round-form" name="description" placeholder="Description">
+                  </div>
+                </div>
+                 
+                                
+         
+	    <div class="modal-footer ">
+        <button  class="btn btn-theme" ><span class="fa fa-save"></span> Enregistrer</button>
+       </div>
+				</div>
+				</div>
+				
+
+                 </form>
+                 </aside>
+                  </div>
+                  
+         </section>
+         </section>
+                </div>
+		
+	
+        <!-- page end-->
+
+        <div th:include="fragments/homefooter :: footer"></div>
+     </section>
+  	  
+
+</body>
+
+</html>

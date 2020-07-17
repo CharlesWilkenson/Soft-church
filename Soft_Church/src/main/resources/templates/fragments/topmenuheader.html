@@ -1,0 +1,66 @@
+<header>
+              
+   <!--header start-->
+          <header class="header black-bg">
+          
+      <div class="sidebar-toggle-box">
+      
+        <div class="fa fa-bars tooltips" data-placement="right" style='font-size:35px;'
+        data-original-title="Dashboard"></div>
+   
+      </div>
+      <!--logo start-->
+      <a th:href="@{/soft_church/home}" class="logo">  <i class="fa fa-church" style='font-size:40px;color:white'></i><b>SOFT<span>CHURCH</span></b></a>
+  
+    
+      <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+          <li>
+           <li class="dropdown" style="padding-right:80px">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+             <img src="../static/Design/img/ui-sam.jpg" class="img-circle" width="45"
+             th:src="@{getImage(code=${''})}">
+              </a>
+            <ul class="dropdown-menu extended tasks-bar" >
+              <div class="notify-arrow notify-arrow-green" ></div>
+              <li>
+                <p class="green"><h5 class="centered" >
+                <label th:text="${session.nom   }"></label>
+       
+                <label th:text="${session.prenom}"></h5> 
+                </p>
+              </li>
+   		   <li class="external">
+                <a href="/soft_church/profileMembre">
+				
+				 <i class="
+glyphicon glyphicon-user"></i>
+				 <span>Profile</span></a>
+              </li>
+		
+		
+		   <li class="external">
+                <a th:href="@{/soft_church/formChangePassword}">
+				
+				 <i class="fa fa-key"></i>
+				 <span>Change password</span></a>
+              </li>
+        
+       
+              <li class="external">
+                <a th:href="@{/soft_church/logout}">
+				
+				 <i class="glyphicon glyphicon-log-out"></i>
+				 <span>Deconnexion</span></a>
+              </li>
+            </ul>
+          </li>
+          <p class="centered"><a href="#"></a></p>
+      
+        
+        </ul>
+      </div> 
+    </header>
+    
+   
+</header>

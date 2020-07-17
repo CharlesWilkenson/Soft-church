@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Rapport Membre</title>
+    <object th:include="fragments/head :: head" th:remove="tag"></object>
+
+</head>
+
+<body>
+  <section id="container">
+
+           <div th:include="fragments/topmenuheader :: header"></div>
+ <div th:include="fragments/homeaside:: aside"></div>
+
+
+   <!--main content start-->
+    <section id="main-content">
+	
+
+      <section class="wrapper site-min-height">
+		
+        <div class="row mb">
+	
+                <div class="container-fluid">
+           
+            <!-- Exportable Table -->
+            <div class="row clearfix">
+             <br> <br>  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    
+                 <!--    <div class="card"> -->
+                       <!--  <div class="header">
+                            <h2>
+                               Lister Membres
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div> -->
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                      <thead>
+                  <tr>
+                  <th>Code</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th >Tel</th>
+                    <th >Sexe</th>
+					 
+					 <th >Statut</th>
+					 <th >Date N</th>
+					 <th >Lieu N</th>
+				
+					<th >Editer</th>
+                   <!--  <th >Delete</th> -->
+                  </tr>
+                </thead>
+                                    <tfoot>
+                                     <tr>
+                                     <th>Code</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th >Tel</th>
+                    <th >Sexe</th>
+					 
+					 <th >Statut</th>
+					 <th >Date N</th>
+					 <th >Lieu N</th>
+				
+					<th >Editer</th>
+                   <!--  <th >Delete</th> -->
+                  </tr>
+                                    </tfoot>
+                                    <tbody>
+                                     <tr th:each="val:${membres}" class="gradeX" >
+                   <td id="code" th:text="${val.code}"></td>
+                    <td th:text="${val.nom}"></td>
+                    <td th:text="${val.prenom}"></td>
+                    <td th:text="${val.tel}"></td>
+                    <td th:text="${val.sexe}"></td>
+                    <td th:text="${val.statutMatrimonial}"></td>
+                    <td th:text="${val.dateNaissance}"></td>
+                    <td th:text="${val.lieuNaissance}"></td>
+                  <!--  <td class="center hidden-phone">4</td>
+                    <td class="center hidden-phone">X</td> -->
+					<td><p data-placement="top" data-toggle="tooltip"  title="Editer"><a th:href="@{getMembre(code=${val.code})}" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></a></p></td>
+      <!--                 <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-search"></span></button></p></td>
+     -->
+                  </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            <!-- #END# Exportable Table -->
+        </div>
+          <!-- page end-->
+        </div>
+        <!-- /row -->
+      </section>
+      <!-- /wrapper -->
+     	<div id="result"></div>
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+    <!--footer start-->
+	
+	
+	
+	
+ <div th:include="fragments/homefooter :: footer"></div></section>
+ 
+</body>
+
+</html>

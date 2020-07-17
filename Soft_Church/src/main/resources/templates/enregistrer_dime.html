@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content=""/>
+  <meta name="author" content="Dashboard"/>
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina"/>
+  <title>Save dime</title>
+
+ <object th:include="fragments/head :: head" th:remove="tag"></object>
+
+
+</head>
+
+<body>
+  <section id="container">
+     <div th:include="fragments/topmenuheader :: header"></div>
+ <div th:include="fragments/homeaside:: aside"></div>
+    <!--sidebar end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<div >
+<section id="main-content" style="width:60%;margin:auto">
+ 
+      <section class="wrapper site-min-height">
+      <br>
+               <div class="alert alert-danger" th:if="${faillure}">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Info!</strong> Enregistrement echoue .
+               </div>
+
+                <div th:if="${succes}" class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Info!</strong> Dime enregistre avec succes.
+              </div>
+ 
+       
+        <!-- page start-->
+        <div class="chat-room mt">
+          <aside class="mid-side" >
+            <div class="chat-room-head">
+              <h3>Enregistrer dime</h3>
+              
+            </div>
+      
+ 
+ 	       <div class="form-group">
+ 	       <label class="radio-inline">Type</label>
+<label class="radio-inline"><input type="radio" name="optradio" onchange="showCash('formCash')">Cash</label>
+<label class="radio-inline"><input type="radio" name="optradio" onchange="showCheque('formCheque')">Cheque</label>   
+        </div>
+
+   <form style="display:none;padding-left:140px" th:object="${cheque}" th:action="@{saveDimeCheque}" 
+		  class="form-horizontal tasi-form"
+	      method="post" id="formCheque">
+		 
+		 	<div class="form-row">
+                       <br/>
+	             <div class="col-md-9 mb-3">
+	             
+	                       <div class="form-group ">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputWarning">Code membre</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control round-form" th:field="*{membre.code}" placeholder="Code du membre">
+                  </div>
+                </div>
+                <!-- transferwise2019 -->
+                
+                 <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Montant</label>
+                  <div class="col-lg-10">
+                    <input type="text" th:field="*{montant}" class="form-control round-form"  placeholder="Montant">
+                  </div>
+                </div>
+                
+                
+                    <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Banque</label>
+                  <div class="col-lg-10">
+                    <input type="text" th:field="*{banque}" class="form-control round-form"  placeholder="Banque">
+                  </div>
+                </div>
+	             </div></div>
+		 
+			  
+			  	<div class="form-row">
+                       <br/>
+	             <div class="col-md-9 mb-3">
+        <!-- transferwise2019 -->
+                
+             
+                
+                
+                   <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Num Cheque</label>
+                  <div class="col-lg-10">
+                    <input type="text" th:field="*{numCheque}" class="form-control round-form"  placeholder="Numero cheque">
+                  </div>
+                </div>
+                
+                     <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Devise</label>
+                  <div class="col-lg-10">
+                    <input type="text" th:field="*{devise}" class="form-control round-form"  placeholder="Devise">
+                  </div>
+                </div>
+                
+                
+                
+	    <div class="modal-footer ">
+        <button  class="btn btn-theme" ><span class="fa fa-save"></span> Enregistrer</button>
+        </div>
+				</div>
+				</div>
+				
+
+          </form>
+ 
+ 
+ 
+ 
+ 
+		  <form style="display:none;padding-left:140px" th:object="${cash}" th:action="@{saveDimeCash}" 
+		  class="form-horizontal tasi-form"
+	      method="post" id="formCash"  >
+		 
+			  
+			  	<div class="form-row">
+                       <br/>
+	             <div class="col-md-9 mb-3">
+    
+        	           <div class="form-group ">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputWarning">Code membre</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control round-form" th:field="*{membre.code}" placeholder="Code du membre">
+                  </div>
+                </div>
+                <!-- transferwise2019 -->
+                
+                 <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Montant</label>
+                  <div class="col-lg-10">
+                    <input type="text" th:field="*{montant}" class="form-control round-form" name="montant" placeholder="Montant">
+                  </div>
+                </div>
+                 
+                       <div class="form-group">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Devise</label>
+                  <div class="col-lg-10">
+                    <input type="text" th:field="*{devise}" class="form-control round-form"  placeholder="Devise">
+                  </div>
+                </div>
+                 
+         
+	    <div class="modal-footer ">
+        <button  class="btn btn-theme" ><span class="fa fa-save"></span> Enregistrer</button>
+       </div>
+				</div>
+				</div>
+				
+
+      </form>
+                 </aside>
+                  </div>
+                  
+         </section>
+         </section>
+                </div>
+		
+	
+        <!-- page end-->
+
+        <div th:include="fragments/homefooter :: footer"></div>
+     </section>
+  	  
+
+    <!--main content end-->
+    <!--footer start-->
+  <!--footer end-->
+
+</body>
+
+</html>

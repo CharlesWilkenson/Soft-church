@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Lister users roles</title>
+    <object th:include="fragments/head :: head" th:remove="tag"></object>
+
+</head>
+
+<body>
+  <section id="container">
+
+           <div th:include="fragments/topmenuheader :: header"></div>
+ <div th:include="fragments/homeaside:: aside"></div>
+	
+	
+
+
+   <!--main content start-->
+    <section id="main-content">
+	
+
+      <section class="wrapper site-min-height">
+		
+        <div class="row mb">
+	
+                <div class="container-fluid">
+           <h1 th:text="${user}"></h1>
+            <!-- Exportable Table -->
+            <div class="row clearfix">
+             <br> <br>  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          
+                        <div class="body">
+                            <div class="table-responsive">
+                                       <table class="table table-bordered table-striped table-hover ">
+                     <thead>
+                      <tr>
+                    <th>Role</th>
+                   
+                    <th>Action</th>
+                    
+                    </tr>
+                     </thead>                    
+                 
+                  
+                 <tbody>
+                  <tr th:each="val:${roles_users}" class="gradeX" >
+                   <td th:text="${val.roleName}"></td>
+                   
+                     <td th:if="${val.roleName !='MEMBRE'}">
+                     <p data-placement="top" data-toggle="tooltip"  title="Enlever">
+                    <!--  <a th:href="@{enleverRole(${val.roleName})}" class="btn btn-primary btn-xs" > -->
+                     <span class="fa fa-times"></span>Enlever</a></p></td>
+               
+                              </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            <!-- #END# Exportable Table -->
+        </div>
+          <!--page end-->
+        </div>
+        <!-- /row -->
+      </section>
+      <!-- /wrapper -->
+     	<div id="result"></div>
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+    <!--footer start-->
+	
+ <div th:include="fragments/homefooter :: footer"></div></section>
+ 
+</body>
+
+</html>
