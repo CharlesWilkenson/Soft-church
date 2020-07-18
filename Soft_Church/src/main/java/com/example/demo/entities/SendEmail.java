@@ -19,8 +19,8 @@ import javax.mail.util.ByteArrayDataSource;
 
 public class SendEmail {
 	static String emailFrom="charleswilkenson13@gmail.com";
-	 final static String username="wilki";
-	 final static String password="wilken2013.";
+	 final static String username="";
+	 final static String password="";
   
      
 	 public static  boolean sendEmail(String passwordUser,String emailTo){
